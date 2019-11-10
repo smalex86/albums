@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>App Name - @yield('title')</title>
+        <title>@yield('title') - {{ config('app.name') }}</title>
     </head>
     <body>
         @section('sidebar')
