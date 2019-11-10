@@ -9,10 +9,11 @@
 @endsection
 
 @section('content')
-<p>Альбомы:</p>
+{{ var_dump($album) }}
+<p>Альбом:</p>
 <ul>
-    @foreach ($albums as $album)
-    <li>id:{{ $album->id }}, name:{{ $album->name }}, title:{{ $album->title }}, lf:{{ $album->local_folder }}</li>
+    @foreach ($album->getAttributes() as $attr)
+    <li>{{ $attr }}:{{ $album->getAttribute($attr) }}</li>
     @endforeach
 </ul>    
 @endsection

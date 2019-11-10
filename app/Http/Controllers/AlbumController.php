@@ -14,7 +14,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        $albums = Album::all();
+        return view('album.index', ['albums' => $albums]);
     }
 
     /**
@@ -46,7 +47,20 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        var_dump($album);
+        return view('album.show', ['album' => $album]);
+    }
+    
+    public function showName($name)
+    {
+        var_dump($name);
+        $album = Album::where('name', $name)->first();
+        if ($album) {
+            return view('album.show', ['album' => $album]);
+        } else {
+            return 'not found';
+        }
+        
     }
 
     /**

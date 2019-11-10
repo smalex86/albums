@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('albums', 'Album@index');
+Route::get('albums', 'AlbumController@index');
+
+Route::get('album/{name}', 'AlbumController@showName');
