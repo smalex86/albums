@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'AlbumController@index');
+
+Route::get('test', function() {
+    echo asset('storage/file.txt');
+    // echo HTML::link('/public', 'Insert New Record');
 });
 
-Route::get('albums', 'AlbumController@index');
 
-Route::get('album/{name}', 'AlbumController@showName');
+Route::get('albums', 'AlbumController@index');
+Route::get('album/{id}', 'AlbumController@show');
+Route::get('album_covers/{id}', 'AlbumController@cover_image');
+
+Route::get('test2', 'AlbumController@test2');
+

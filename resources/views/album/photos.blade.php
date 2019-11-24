@@ -2,24 +2,15 @@
 
 @section('title', config('app.name'))
 
-{{-- @section('sidebar')
-  @parent
-
-  <p>This is appended to the master sidebar.</p>
-@endsection --}}
-
 @section('content')
 
 <div class="mt-6 mb-6">
-  <p class="text-center mb-1 h3">25.10.2019</p>
-  <h1 class="text-center"><strong>Фотоальбомы</strong></h1>
+<h1 class="text-center">{{ $album->title }}</h1>
 </div>
 <hr>
 
-{{-- <a href='{!! url('/about'); !!}'>About</a> --}}
-
 <div class="row">
-@foreach ($albums as $album)
+{{-- @foreach ($albums as $album)
   <div class="col-sm">
     <a class="nav-link" href="{!! url("album/{$album->id}/"); !!}">
       <div class="row">
@@ -32,6 +23,6 @@
       </div>
     </a>
   </div>
-@endforeach
+@endforeach --}}
 </div>
 @endsection

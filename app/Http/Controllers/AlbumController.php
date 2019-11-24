@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AlbumController extends Controller
 {
@@ -42,25 +43,28 @@ class AlbumController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Album  $album
+     * @param  integer $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Album $album)
+    public function show($id)
     {
-        var_dump($album);
-        return view('album.show', ['album' => $album]);
-    }
-    
-    public function showName($name)
-    {
-        var_dump($name);
-        $album = Album::where('name', $name)->first();
+        $album = Album::where('id', $id)->first();
         if ($album) {
-            return view('album.show', ['album' => $album]);
+            return view('album.photos', ['album' => $album]);
         } else {
             return 'not found';
         }
-        
+
+    }
+
+    public function test2() {
+        return '<img src="album_covers/1" >';
+        // return Storage::url('1.jpg');
+        return Storage::disk('public')->download('1.jpeg');  // ссылка на загрузку файла
+    }
+
+    public function cover_image($id) {
+        return Storage::disk('public')->download('album_covers/' . Album::find($id)->cover);
     }
 
     /**

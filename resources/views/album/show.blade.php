@@ -9,12 +9,10 @@
 @endsection
 
 @section('content')
-{{ var_dump($album) }}
 <p>Альбом:</p>
 <ul>
-    @foreach ($album->getAttributes() as $attr)
-    <li>{{ $attr }}:{{ $album->getAttribute($attr) }}</li>
+    @foreach ($album->getAttributes() as $key=>$value)
+    <li>{{ $key }}:{{ $value }}</li>
     @endforeach
-</ul>    
+</ul>
 @endsection
-
