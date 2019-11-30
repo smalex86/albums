@@ -64,6 +64,34 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'covers' => [
+            'driver' => 'local',
+            'root' => storage_path('app/albums/covers'),
+            'url' => env('APP_URL').'/albums/covers',
+            'visibility' => 'public',
+        ],
+
+        'thumbs' => [
+            'driver' => 'local',
+            'root' => storage_path('app/albums/thumbs'),
+            'url' => env('APP_URL').'/albums/thumbs',
+            'visibility' => 'public',
+        ],
+
+        'shows' => [
+            'driver' => 'local',
+            'root' => storage_path('app/albums/shows'),
+            'url' => env('APP_URL').'/albums/shows',
+            'visibility' => 'public',
+        ],
+
+        'originals' => [
+            'driver' => 'local',
+            'root' => storage_path('app/albums/originals'),
+            'url' => env('APP_URL').'/albums/originals',
+            'visibility' => 'public',
+        ],
+
     ],
 
 ];
