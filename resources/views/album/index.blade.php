@@ -24,10 +24,10 @@
     <a class="nav-link" href="{!! url("album/{$album->id}/"); !!}">
       <div class="row">
         <div class="col text-center">
-          <img class="album-cover img-thumbnail" src="album_covers/{{ $album->id }}" >
+          <img class="album-cover img-thumbnail" src="covers/{{ $album->id }}" >
         </div>
-        <div class="col text-center">
-          <p class="album-title">{{ $album->title }}</p>
+        <div class="col">
+          <p class="album-title">{{ $album->title }} ({{ $album->photos()->count() }} фото)</p>
         </div>
       </div>
     </a>

@@ -21,7 +21,11 @@ Route::get('test', function() {
 
 Route::get('albums', 'AlbumController@index');
 Route::get('album/{id}', 'AlbumController@show');
-Route::get('album_covers/{id}', 'AlbumController@cover_image');
+Route::get('covers/{id}', 'AlbumController@cover');
+
+Route::get('thumbs/{album_id}/{guid}', 'PhotoController@thumbImage');
+Route::get('shows/{album_id}/{guid}', 'PhotoController@showImage');
+Route::get('originals/{album_id}/{guid}', 'PhotoController@originalImage');
 
 Route::get('test2', 'AlbumController@test2');
 

@@ -52,19 +52,13 @@ class AlbumController extends Controller
         if ($album) {
             return view('album.photos', ['album' => $album]);
         } else {
-            return 'not found';
+            abort(404);
         }
 
     }
 
-    public function test2() {
-        return '<img src="album_covers/1" >';
-        // return Storage::url('1.jpg');
-        return Storage::disk('public')->download('1.jpeg');  // ссылка на загрузку файла
-    }
-
-    public function cover_image($id) {
-        return Storage::disk('public')->download('album_covers/' . Album::find($id)->cover);
+    public function cover($id) {
+        return Storage::disk('covers')->download(Album::find($id)->cover);
     }
 
     /**
