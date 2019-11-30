@@ -21,18 +21,7 @@
     $photos = $album->photos
 @endphp
 @if (count($photos) > 0)
-    {{-- <div id="photoGallery" data-nanogallery2='{
-        "itemsBaseURL": "{!! url("/"); !!}",
-        "thumbnailWidth": "auto",
-        "thumbnailHeight": "250",
-        "thumbnailLabel": {
-          "display": false
-        },
-        "thumbnailBorderVertical": 0,
-        "thumbnailBorderHorizontal": 0,
-        "thumbnailHoverEffect2": "imageScaleIn80|imageSepiaOff|labelAppear75",
-        "thumbnailAlignment": "center"
-      }'> --}}
+
     <div id="photoGallery">
     @foreach ($photos as $photo)
         <a href="{!! url("/shows/{$album->id}/{$photo->guid}"); !!}"
@@ -49,10 +38,7 @@
 <script>
 jQuery(document).ready(function () {
   var downloadOriginal = function(customElementName, $customIcon, item) {
-    console.log(customElementName);
-    console.log($customIcon);
-    console.log(item);
-    alert('Media title :' + item.title);
+
   }
 
   jQuery("#photoGallery").nanogallery2({
