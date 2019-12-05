@@ -11,14 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AlbumController@index');
 
 Route::get('test', function() {
-    return 'test111';
+    echo asset('storage/file.txt');
+    // echo HTML::link('/public', 'Insert New Record');
 });
 
-Route::get('/test2', function() {
-    return 'test111';
-});
+
+Route::get('albums', 'AlbumController@index');
+Route::get('album/{id}', 'AlbumController@show');
+Route::get('covers/{id}', 'AlbumController@cover');
+
+Route::get('thumbs/{album_id}/{guid}', 'PhotoController@thumbImage');
+Route::get('shows/{album_id}/{guid}', 'PhotoController@showImage');
+Route::get('originals/{album_id}/{guid}', 'PhotoController@originalImage');
+
+Route::get('test2', 'AlbumController@test2');
+
